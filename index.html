@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Portfolio Generator</title>
+
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #f4f6f9;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+input, textarea {
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Portfolio Generator</h2>
+
+<input id="name" placeholder="Your Name"><br>
+<input id="skills" placeholder="Your Skills"><br>
+<textarea id="bio" placeholder="Short Bio"></textarea><br>
+
+<button onclick="generate()">Generate</button>
+
+<textarea id="output"></textarea>
+<button onclick="copy()">Copy</button>
+</div>
+
+<script>
+function generate(){
+  let name = document.getElementById("name").value;
+  let skills = document.getElementById("skills").value;
+  let bio = document.getElementById("bio").value;
+
+  let result = `Hi, I'm ${name}. I specialize in ${skills}. ${bio}`;
+  document.getElementById("output").value = result;
+}
+
+function copy(){
+  let text = document.getElementById("output");
+  text.select();
+  document.execCommand("copy");
+  alert("Copied!");
+}
+</script>
+
+</body>
+
+</html>
